@@ -1,15 +1,19 @@
+
 {
-    "version":2,
-    "builds":[
-        {
-            "src":"./server.js",
-            "use":"@vercelnode"
-        }
-    ],
-    "routes":[
-        {
-            "src":"/.*",
-            "dest":"server.js"
-        }
-    ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/app.js",
+      "use": "@now/node-server"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "server/app.js"
+    },
+    {
+      "handle": "filesystem"
+    }
+  ]
 }
